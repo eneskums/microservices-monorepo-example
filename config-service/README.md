@@ -64,15 +64,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka/}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, refresh
-  endpoint:
-    health:
-      show-details: always
 ```
 
 📌 Not:
