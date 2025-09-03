@@ -52,15 +52,6 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, refresh
-  endpoint:
-    health:
-      show-details: always
 ```
 
 📌 Not:
