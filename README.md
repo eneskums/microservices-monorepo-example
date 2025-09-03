@@ -35,6 +35,7 @@ microservices-monorepo-example/
  ├── gateway-service/ → API Gateway
  ├── order-service/ → Sipariş yönetimi
  ├── config-files/ → application.yml dosyaları
+ ├── mysql/init.sql → mysql başlatılırken oluşturulacak veritabanları
  ├── docker-compose.yml
  └── README.md
 ```
