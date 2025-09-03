@@ -13,6 +13,7 @@ import com.eneskumas.orderservice.service.CustomerService;
 import com.eneskumas.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -54,6 +55,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponseDto create(OrderCreateRequestDto orderCreateRequestDto) {
 
         validateCustomer(orderCreateRequestDto.getCustomerId());
@@ -71,6 +73,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponseDto update(Long id, OrderUpdateRequestDto orderUpdateRequestDto) {
 
         validateCustomer(orderUpdateRequestDto.getCustomerId());
@@ -85,6 +88,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
 
         final Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
