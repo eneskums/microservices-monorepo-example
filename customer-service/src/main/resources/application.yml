@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: customer-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+    failFast: true
+    retry:
+      maxAttempts: 6
+      initialInterval: 2000
+      multiplier: 1.5
+
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
