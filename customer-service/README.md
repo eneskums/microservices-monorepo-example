@@ -55,12 +55,6 @@ spring:
 
   profiles:
     active: dev
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: refresh
 ```
 
 **Config Server’deki customer-service dosyaları:**
