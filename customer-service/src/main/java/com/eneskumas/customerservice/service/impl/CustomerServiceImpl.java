@@ -11,6 +11,7 @@ import com.eneskumas.customerservice.repository.CustomerRepository;
 import com.eneskumas.customerservice.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public CustomerResponseDto create(CustomerCreateDto dto) {
 
         if (customerRepository.existsByEmail(dto.getEmail())) {
@@ -57,6 +59,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public CustomerResponseDto update(Long id, CustomerUpdateDto dto) {
 
         if (customerRepository.existsByEmailAndIdNot(dto.getEmail(), id)) {
@@ -72,6 +75,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
 
         final Customer customer = customerRepository.findById(id)
